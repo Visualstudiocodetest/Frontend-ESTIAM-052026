@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  --estiam-red: #E5004F;
+  --estiam-red-dark: #c40043;
+  --estiam-dark: #1F2022;
+  --estiam-gray: #F4F5F7;
+  --estiam-light-gray: #EAEAEA;
+  --estiam-white: #ffffff;
+  --text-color: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: var(--estiam-gray);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App {
+  width: 100vw;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background: var(--estiam-white);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid var(--estiam-light-gray);
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--estiam-dark);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  background-color: var(--estiam-gray);
+}
+
+nav a:hover, nav a:focus {
+  background-color: var(--estiam-red);
+  color: var(--estiam-white);
+  box-shadow: 0 4px 15px rgba(229, 0, 79, 0.3);
+  transform: translateY(-2px);
+}
+
+h1 {
+  color: var(--estiam-dark);
+  font-weight: 700;
+  font-size: 1.8rem;
+  border-left: 6px solid var(--estiam-red);
+  padding-left: 15px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid var(--estiam-light-gray);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--estiam-gray);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--estiam-red);
+  box-shadow: 0 0 0 4px rgba(229, 0, 79, 0.1);
+  background-color: var(--estiam-white);
+}
+
+button {
+  background-color: var(--estiam-red);
+  color: var(--estiam-white);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: var(--estiam-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(229, 0, 79, 0.25);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--estiam-white);
+  padding: 20px 25px;
+  border-radius: 12px;
+  border: 1px solid var(--estiam-light-gray);
+  border-left: 6px solid var(--estiam-red);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-item-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+
+.todo-item-container h1 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--estiam-dark);
+  margin: 0;
+  border: none;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  flex: 1;
+  word-break: break-word;
+}
+
+.todo-item-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Specific button styles for list items */
+.todo-item-container button {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.btn-outline {
+  background-color: transparent !important;
+  border: 2px solid var(--estiam-dark) !important;
+  color: var(--estiam-dark) !important;
+  box-shadow: none !important;
+}
+
+.btn-outline:hover {
+  background-color: var(--estiam-dark) !important;
+  color: var(--estiam-white) !important;
+}
+
+/* Strikethrough style for completed tasks */
+.completed-task h1 {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.completed-task {
+  border-left-color: #999;
+  opacity: 0.7;
+  background-color: var(--estiam-gray);
+}
