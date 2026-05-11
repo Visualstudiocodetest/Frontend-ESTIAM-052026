@@ -1,62 +1,37 @@
 import { useState } from "react";
 
-
 function ContactForm({ addContact }) {
-    const [form, setForm] = useState({
-        name: "",
-        firstname: "",
-        email: "",
-        phone: ""
-    });
-    const [errors, setErrors] = useState({});
 
-    const validate = () => {
-        const newErrors = {};
-        if (!form.name.trim()) newErrors.name = "Le nom est requis.";
-        if (!form.firstname.trim()) newErrors.firstname = "Le prénom est requis.";
-        if (!form.email.trim()) {
-            newErrors.email = "L'email est requis.";
-        } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
-            newErrors.email = "L'email n'est pas valide.";
-        }
-        return newErrors;
-    };
-
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
+    const addNewContact = (e) => {
         e.preventDefault();
-        const validationErrors = validate();
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-            return;
-        }
-        setErrors({});
-        const newContact = { ...form, id: Date.now() };
+        const newContact = {
+            id: Date.now(),
+            name: e.target.name.value,
+            firstname: e.target.firstname.value,
+            email: e.target.email.value,
+            phone: e.target.phone.value
+        };
         addContact(newContact);
-        setForm({ name: "", firstname: "", email: "", phone: "" });
-    };
-
-    return (
+        e.target.reset();
+    }
+        return (
         <div>ContactForm
-            <form onSubmit={handleSubmit} className="contact-form">
-                <input type="text" name="name" placeholder="Nom" value={form.name} onChange={handleChange} />
-                {errors.name && <span style={{color: 'red'}}>{errors.name}</span>}
+        <form onSubmit={addNewContact} className="contact-form">
 
-                <input type="text" name="firstname" placeholder="Prénom" value={form.firstname} onChange={handleChange} />
-                {errors.firstname && <span style={{color: 'red'}}>{errors.firstname}</span>}
+            <input type="text" name="name" placeholder="Nom" required />
 
-                <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-                {errors.email && <span style={{color: 'red'}}>{errors.email}</span>}
+            <input type="text" name="firstname" placeholder="Prénom" required />
 
-                <input type="phone" name="phone" placeholder="Téléphone" value={form.phone} onChange={handleChange} />
+            <input type="email" name="email" placeholder="Email" required />
 
-                <button type="submit">Envoyer</button>
-            </form>
+            <input type="phone" name="phone" placeholder="Téléphone" required />
+
+            <button type="submit">Envoyer</button>
+
+
+        </form>
         </div>
-    );
-}
+    )
+    }
 
 export default ContactForm;

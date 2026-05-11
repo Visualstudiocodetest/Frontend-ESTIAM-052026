@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-function ContactItem({ contact, deleteContact, updateContact }) {
 
+function ContactItem({ contact, deleteContact, updateContact }) {
     const [isEditing, setIsEditing] = useState(false);
     const [form, setForm] = useState({
         name: contact.name || "",
@@ -59,6 +59,7 @@ function ContactItem({ contact, deleteContact, updateContact }) {
                 </form>
             ) : (
                 <>
+                    <strong>ID: {contact.id}</strong>
                     <h2>{contact.name} - {contact.firstname}</h2>
                     <p>{contact.email}</p>
                     <p>{contact.phone}</p>

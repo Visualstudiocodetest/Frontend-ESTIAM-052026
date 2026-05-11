@@ -1,15 +1,17 @@
 
 import ContactItem from "./ContactItem";
 import { useState } from "react";
+import ContactForm from "./ContactForm";
 
 function ContactList({ contacts, deleteContact, updateContact }) {
+
     const [search, setSearch] = useState("");
 
-    const filteredContacts = contacts.filter(contact =>
-        contact.name.toLowerCase().includes(search.toLowerCase()) ||
-        contact.firstname?.toLowerCase().includes(search.toLowerCase() || "") ||
-        contact.email?.toLowerCase().includes(search.toLowerCase() || "") ||
-        contact.phone?.toLowerCase().includes(search.toLowerCase() || "")
+    const filteredContacts = contacts.filter(c =>
+        c.name.toLowerCase().includes(search.toLowerCase()) ||
+        c.firstname.toLowerCase().includes(search.toLowerCase()) ||
+        c.email.toLowerCase().includes(search.toLowerCase()) ||
+        c.phone.includes(search)
     );
 
     return (
