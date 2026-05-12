@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem';
 
-function TodoList( {tasks, toggleTask, deleteTask} ) {
+function TodoList( {tasks, onToggle, onDelete} ) {
     return (
         <div>
             <h1>Ma liste de tâches</h1>
@@ -10,8 +10,8 @@ function TodoList( {tasks, toggleTask, deleteTask} ) {
                     <TodoItem 
                         key={task.id} 
                         task={task} 
-                        toggleTask={toggleTask} 
-                        deleteTask={deleteTask} 
+                        toggleTask={onToggle} 
+                        deleteTask={onDelete} 
                     />
                 ))}
             </ul>
