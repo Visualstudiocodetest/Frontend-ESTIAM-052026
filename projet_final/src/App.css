@@ -1,0 +1,95 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f8;
+  color: #111;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.app-main {
+  width: min(980px, 96%);
+  margin: 20px auto;
+  flex: 1;
+  padding: 12px 0 40px;
+}
+
+.topbar {
+  width: 100%;
+  max-width: 980px;
+  margin: 12px auto 0;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e6e6e9;
+  border-radius: 8px;
+}
+
+.brand-link {
+  color: #111;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.topbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link, .nav-button, .button {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-link.active {
+  background: #eef2ff;
+  border-color: #dedff7;
+}
+
+.button--primary { background: #2563eb; color: #fff; border-color: #1e48c6 }
+.button--danger { background: #dc2626; color: #fff; border-color: #b91c1c }
+
+.page { display: flex; flex-direction: column; gap: 16px }
+.page--narrow { width: min(720px, 100%); margin: 0 auto }
+.page--centered { align-items: center; text-align: center }
+
+.eyebrow { font-weight: 700; color: #2563eb; font-size: 0.85rem }
+.lead { color: #333; max-width: 60ch }
+
+.status { padding: 10px 12px; border-radius: 8px; background: #fff; border: 1px solid #eee; color: #222 }
+.status--error, .form-error { color: #7f1d1d; background: #fff1f1; border-color: #f5c2c2 }
+
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px }
+
+.article-card, .form-card, .detail-card {
+  padding: 14px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e6e6e9;
+}
+
+.article-card h3, .detail-card h1, .page__hero h1 { margin: 0; color: #111 }
+.article-card__meta { color: #666; font-size: 0.9rem; margin-bottom: 8px }
+.article-card__excerpt, .detail-card__content { color: #222; line-height: 1.45 }
+
+.article-card__actions, .detail-card__actions { display: flex; gap: 8px; margin-top: 10px }
+
+.form-card { display: grid; gap: 12px }
+.field { display: grid; gap: 8px; color: #111 }
+.field input, .field textarea { padding: 8px 10px; border-radius: 6px; border: 1px solid #ddd; background: #fff }
+
+@media (max-width: 720px) {
+  .topbar { flex-direction: column; align-items: stretch }
+  .topbar__nav { justify-content: flex-end }
+  .nav-link, .nav-button, .button { width: auto }
+}

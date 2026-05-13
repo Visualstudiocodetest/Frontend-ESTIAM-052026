@@ -1,0 +1,13 @@
+.root, * { box-sizing: border-box }
+
+html, body, #root { height: 100% }
+
+html { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+body { margin: 0; background: #f7f7f8; color: #111 }
+
+a { color: inherit; text-decoration: none }
+
+button, input, textarea { font: inherit }
+
+img { max-width: 100%; display: block }
